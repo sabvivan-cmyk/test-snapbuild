@@ -25,8 +25,3 @@
   line-height: var(--line-height-heading);
   overflow-wrap: anywhere;
 }
-
-.site-header,
-.site-footer {
-  min-height: var(--space-3xl);
-}

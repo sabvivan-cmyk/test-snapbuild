@@ -3,7 +3,7 @@ import { existingSections } from '../components/sections/existing'
 import { newSections } from '../components/sections/new'
 
 const pageSections = [
-  { id: 'hero', label: existingSections.hero, kind: 'existing' },
+  { id: 'hero', label: existingSections.hero, kind: 'existing', headingLevel: 1 },
   { id: 'platform', label: existingSections.platform, kind: 'existing' },
   { id: 'workflow', label: newSections.workflow, kind: 'new' },
   { id: 'capabilities', label: existingSections.capabilities, kind: 'existing' },
