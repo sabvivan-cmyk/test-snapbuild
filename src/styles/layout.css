@@ -1,0 +1,32 @@
+.container {
+  width: min(calc(100% - 2 * var(--page-padding)), var(--container-max-width));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-padding-block);
+}
+
+.section--placeholder {
+  border-block-end: 1px solid var(--color-border);
+}
+
+.section-placeholder__kind {
+  margin: 0 0 var(--space-md);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.section-placeholder__title {
+  max-width: 14ch;
+  margin: 0;
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-heading);
+  overflow-wrap: anywhere;
+}
+
+.site-header,
+.site-footer {
+  min-height: var(--space-3xl);
+}
