@@ -12,7 +12,6 @@ export function ButtonLink({ children, className, variant = 'primary', ...props 
   return (
     <a className={classes} {...props}>
       {children}
-      <span aria-hidden="true">↗</span>
     </a>
   )
 }

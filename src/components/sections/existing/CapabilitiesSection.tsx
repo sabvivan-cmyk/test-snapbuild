@@ -24,10 +24,10 @@ export function CapabilitiesSection() {
           ))}
         </div>
         <div aria-labelledby={`tab-${active.id}`} className="capability-panel" id={`panel-${active.id}`} role="tabpanel">
-          <div className="capability-panel__copy"><p className="eyebrow">{active.label}</p><h3>{active.title}</h3><p>{active.text}</p><ul>{active.features.map((feature) => <li key={feature}>{feature}</li>)}</ul></div>
+          <div className="capability-panel__copy"><ul>{active.features.map((feature) => <li key={feature}>{feature}</li>)}</ul></div>
           <div className={`capability-preview capability-preview--${active.id}`} aria-hidden="true">
-            <div className="capability-preview__chrome"><span /><span /><span /></div>
-            <div className="capability-preview__content"><small>SNAPBUILD / {active.label.toUpperCase()}</small><strong>{active.title}</strong><i /></div>
+            <div className="capability-preview__chrome"><strong>снэпбилд</strong><span>Новый проект</span><span>Экспорт</span></div>
+            <div className="capability-preview__content"><small>{active.title}</small><div className="preview-stage"><i /><strong>{active.label}</strong></div><div className="preview-timeline"><i /><i /><i /><i /></div></div>
           </div>
         </div>
       </Container>

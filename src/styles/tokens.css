@@ -1,7 +1,7 @@
 :root {
   color-scheme: light;
 
-  --color-background: #f7f7f5;
+  --color-background: #f4f4f4;
   --color-surface: #ffffff;
   --color-surface-muted: #efefec;
   --color-text: #161616;
@@ -13,9 +13,9 @@
 
   --font-family-sans: Inter, Arial, Helvetica, sans-serif;
   --font-size-body: 1rem;
-  --font-size-section-title: clamp(2.5rem, 5.4vw, 5.5rem);
+  --font-size-section-title: clamp(2rem, 3.2vw, 3.35rem);
   --line-height-body: 1.5;
-  --line-height-heading: 1.05;
+  --line-height-heading: 1;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
 
@@ -28,9 +28,9 @@
   --space-3xl: 4rem;
   --space-4xl: 6rem;
 
-  --container-max-width: 82rem;
-  --page-padding: 2rem;
-  --section-padding-block: var(--space-4xl);
+  --container-max-width: 78rem;
+  --page-padding: 2.25rem;
+  --section-padding-block: 4.75rem;
 
   --radius-sm: 0.625rem;
   --radius-md: 1.25rem;
@@ -39,14 +39,14 @@
 
 @media (max-width: 48rem) {
   :root {
-    --page-padding: 1.5rem;
-    --section-padding-block: var(--space-3xl);
+    --page-padding: 1.25rem;
+    --section-padding-block: 4rem;
   }
 }
 
 @media (max-width: 30rem) {
   :root {
-    --page-padding: 1rem;
-    --section-padding-block: var(--space-2xl);
+    --page-padding: .9rem;
+    --section-padding-block: 3.5rem;
   }
 }

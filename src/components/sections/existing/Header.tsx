@@ -14,7 +14,7 @@ export function Header() {
     <header className="site-header">
       <Container className="site-header__inner">
         <a className="brand" href="#top" aria-label="Snapbuild — на главную">
-          <span className="brand__mark" aria-hidden="true">S</span>
+          <span className="brand__mark" aria-hidden="true" />
           <span>снэпбилд</span>
         </a>
         <nav className="site-nav" aria-label="Основная навигация">
