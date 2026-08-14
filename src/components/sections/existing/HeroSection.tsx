@@ -1,26 +1,33 @@
+import heroImage from '../../../assets/snapbuild/hero-snapbuild-2026-08-07-v2.webp'
+import logoAvito from '../../../assets/snapbuild/logo-avito.svg'
+import logoCian from '../../../assets/snapbuild/logo-cian.svg'
+import logoLenta from '../../../assets/snapbuild/logo-lenta.svg'
 import { ButtonLink } from '../../ui/ButtonLink'
 import { Container } from '../../ui/Container'
 
 export function HeroSection() {
   return (
-    <section className="hero" id="top">
-      <Container>
-        <div className="hero__copy">
-          <h1>Платформа, где всё создаётся в рамках вашего бренда и дизайн-системы</h1>
-          <p className="hero__lead">Подключите дизайн-систему к Снэпбилду, чтобы каждый участник команды мог создавать профессиональные материалы за минуты, а не дни.</p>
-          <ButtonLink href="https://builder.snapbuild.ru/">Начать сейчас</ButtonLink>
-        </div>
-        <div className="product-window hero__visual" aria-label="Предварительный просмотр интерфейса Snapbuild">
-          <div className="hero-builder">
-            <div className="hero-builder__sidebar"><strong>снэпбилд</strong><i /><i /><i /><i /><i /><i /></div>
-            <div className="hero-builder__canvas">
-              <strong>Алексей, создадим что-то новое?</strong>
-              <div className="hero-builder__prompt">Опишите, что вы хотите сгенерировать… <span>→</span></div>
-              <div className="hero-builder__modes"><span>Веб-сайт</span><span>Изображение</span><span>Видео</span><span>Презентация</span></div>
+    <>
+      <section className="hero" id="top">
+        <div className="hero__card">
+          <Container>
+            <div className="hero__copy">
+              <h1>Платформа, где все создается в&nbsp;рамках вашего бренда и&nbsp;дизайн-системы</h1>
+              <p>Подключите дизайн-систему к Снэпбилду, чтобы каждый участник команды мог создавать профессиональные материалы в фирменном стиле за минуты, а не дни.</p>
+              <ButtonLink href="https://builder.snapbuild.ru/">Начать сейчас</ButtonLink>
             </div>
-          </div>
+            <img className="hero__visual" src={heroImage} alt="Интерфейс платформы Снэпбилд" />
+          </Container>
         </div>
-      </Container>
-    </section>
+      </section>
+      <section className="client-logos" aria-label="Компании, использующие Снэпбилд">
+        <Container>
+          <p>С платформой работают команды, для которых бренд — закон</p>
+          <div className="client-logos__row">
+            <strong>OZON</strong><strong>T2</strong><img src={logoAvito} alt="Авито" /><img src={logoCian} alt="Циан" /><img src={logoLenta} alt="Лента" />
+          </div>
+        </Container>
+      </section>
+    </>
   )
 }

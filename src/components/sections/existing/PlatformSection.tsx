@@ -1,10 +1,13 @@
+import designSystem from '../../../assets/snapbuild/84a4450b3827bc21.webp'
+import configuration from '../../../assets/snapbuild/process-flexible-configuration.webp'
+import compliance from '../../../assets/snapbuild/afe03eb4a67d5dfb.webp'
 import { Container } from '../../ui/Container'
 import { SectionHeader } from '../../ui/SectionHeader'
 
 const principles = [
-  { visual: 'system', title: 'Дизайн-система — ядро платформы', text: 'Ваши компоненты, цвета и шрифты — единственный источник стиля.' },
-  { visual: 'config', title: 'Гибкая конфигурация', text: 'Правила бренда задаются один раз — работают в каждой генерации.' },
-  { visual: 'match', title: 'Соответствие по умолчанию', text: 'AI не может нарушить бренд: материалы создаются строго по вашим правилам.' },
+  { image: designSystem, title: 'Дизайн-система — ядро платформы', text: 'Ваши компоненты, цвета и шрифты — единственный источник стиля.' },
+  { image: configuration, title: 'Гибкая конфигурация', text: 'Правила бренда задаются один раз — и работают в каждой генерации.' },
+  { image: compliance, title: 'Соответствие по умолчанию', text: 'AI не может нарушить бренд: сайты, изображения, видео, баннеры и презентации — строго по вашим правилам.' },
 ]
 
 export function PlatformSection() {
@@ -15,12 +18,13 @@ export function PlatformSection() {
         <div className="principles">
           {principles.map((item) => (
             <article className="principle" key={item.title}>
-              <div className={`principle__visual principle__visual--${item.visual}`} aria-hidden="true"><i /><i /><i /><i /></div>
-              <h3>{item.title}</h3><p>{item.text}</p>
+              <img src={item.image} alt="" />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </article>
           ))}
         </div>
       </Container>
     </section>
-  )
+  );
 }
