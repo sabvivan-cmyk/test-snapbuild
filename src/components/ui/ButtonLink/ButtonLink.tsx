@@ -11,7 +11,7 @@ export function ButtonLink({ children, className, variant = 'primary', ...props 
 
   return (
     <a className={classes} {...props}>
-      {children}
+      <span>{children}</span>
     </a>
   )
 }
