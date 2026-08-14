@@ -1,4 +1,5 @@
 export { AiControlSection } from './AiControlSection'
 export { AudienceAdaptationSection } from './AudienceAdaptationSection'
 export { DesignToMaterialSection } from './DesignToMaterialSection'
+export { TeamBrandSection } from './TeamBrandSection'
 export { WorkScenariosSection } from './WorkScenariosSection'

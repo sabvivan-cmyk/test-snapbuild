@@ -1,0 +1,667 @@
+.team-brand__surface {
+  overflow: visible;
+  padding: 0;
+  border-radius: calc(20 / 14.4 * 1vw);
+  background: #f3f3f5;
+}
+
+.team-brand__diagram {
+  position: relative;
+  display: grid;
+  min-height: calc(500 / 14.4 * 1vw);
+  align-items: stretch;
+  grid-template-areas:
+    'marketing core design'
+    'product core brand';
+  grid-template-columns: minmax(0, 1fr) minmax(calc(360 / 14.4 * 1vw), 1.15fr) minmax(0, 1fr);
+  gap: calc(12 / 14.4 * 1vw);
+}
+
+.team-brand__core,
+.team-brand__role {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  border: 1px solid rgba(0, 0, 0, .045);
+  background: rgba(255, 255, 255, .94);
+  flex-direction: column;
+}
+
+.team-brand__core {
+  grid-area: core;
+  align-items: center;
+  justify-content: center;
+  padding: calc(24 / 14.4 * 1vw);
+  border-radius: calc(18 / 14.4 * 1vw);
+  background: #fff;
+  text-align: center;
+}
+
+.team-brand__core > span,
+.team-brand__result > span {
+  color: #8b8c91;
+  font-size: calc(12 / 14.4 * 1vw);
+  line-height: 1.5;
+}
+
+.team-brand__core img {
+  width: auto;
+  height: calc(24 / 14.4 * 1vw);
+  margin: calc(18 / 14.4 * 1vw) 0;
+}
+
+.team-brand__core h3 {
+  max-width: calc(310 / 14.4 * 1vw);
+  margin: 0 0 calc(12 / 14.4 * 1vw);
+  font-size: calc(32 / 14.4 * 1vw);
+  font-weight: 500;
+  letter-spacing: calc(-.7 / 14.4 * 1vw);
+  line-height: 1.125;
+}
+
+.team-brand__core p {
+  max-width: calc(320 / 14.4 * 1vw);
+  margin: 0;
+  color: #68686b;
+  font-size: calc(14 / 14.4 * 1vw);
+  line-height: 1.4286;
+}
+
+.team-brand__material {
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid #dedee0;
+  border-radius: calc(12 / 14.4 * 1vw);
+  background: #fff;
+  box-shadow: 0 calc(14 / 14.4 * 1vw) calc(30 / 14.4 * 1vw) rgba(67, 55, 63, .1);
+  text-align: left;
+}
+
+.team-brand__material-bar {
+  display: flex;
+  height: calc(30 / 14.4 * 1vw);
+  align-items: center;
+  gap: calc(4 / 14.4 * 1vw);
+  padding-inline: calc(10 / 14.4 * 1vw);
+  border-bottom: 1px solid #ececef;
+}
+
+.team-brand__material-bar i {
+  width: calc(4 / 14.4 * 1vw);
+  height: calc(4 / 14.4 * 1vw);
+  border-radius: 50%;
+  background: #c4c4c8;
+}
+
+.team-brand__material-bar small {
+  margin-left: calc(5 / 14.4 * 1vw);
+  color: #8b8c91;
+  font-size: calc(12 / 14.4 * 1vw);
+}
+
+.team-brand__material-body {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(265 / 14.4 * 1vw);
+  padding: calc(24 / 14.4 * 1vw);
+  border: 0;
+  background: linear-gradient(145deg, #fff 12%, #ffe8db 65%, #ffbfd9);
+  transition: border-color .25s ease;
+}
+
+.team-brand__material-label {
+  display: block;
+  width: max-content;
+  margin-bottom: calc(10 / 14.4 * 1vw);
+  padding: calc(5 / 14.4 * 1vw) calc(7 / 14.4 * 1vw) calc(3 / 14.4 * 1vw);
+  border: 1px solid transparent;
+  border-radius: calc(5 / 14.4 * 1vw);
+  color: #68686b;
+  font-size: calc(12 / 14.4 * 1vw);
+  transition: border-color .25s ease, background .25s ease;
+}
+
+.team-brand__material .team-brand__material-body h3 {
+  position: relative;
+  z-index: 2;
+  max-width: 72%;
+  margin-bottom: calc(8 / 14.4 * 1vw);
+  padding: calc(3 / 14.4 * 1vw);
+  border: 1px solid transparent;
+  border-radius: calc(5 / 14.4 * 1vw);
+  font-size: calc(24 / 14.4 * 1vw);
+  transition: border-color .25s ease, background .25s ease;
+}
+
+.team-brand__material .team-brand__material-body p {
+  position: relative;
+  z-index: 2;
+  max-width: 62%;
+  margin-bottom: calc(18 / 14.4 * 1vw);
+  padding: calc(3 / 14.4 * 1vw);
+  border: 1px solid transparent;
+  border-radius: calc(5 / 14.4 * 1vw);
+  font-size: calc(14 / 14.4 * 1vw);
+  transition: border-color .25s ease, background .25s ease;
+}
+
+.team-brand__material-body > strong {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: max-content;
+  padding: calc(7 / 14.4 * 1vw) calc(10 / 14.4 * 1vw);
+  border-radius: calc(7 / 14.4 * 1vw);
+  background: #111;
+  color: #fff;
+  font-size: calc(12 / 14.4 * 1vw);
+  font-weight: 500;
+}
+
+.team-brand__material-body > small {
+  position: absolute;
+  right: calc(12 / 14.4 * 1vw);
+  bottom: calc(12 / 14.4 * 1vw);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(4 / 14.4 * 1vw) calc(7 / 14.4 * 1vw);
+  border: 1px solid transparent;
+  border-radius: calc(5 / 14.4 * 1vw);
+  color: #68686b;
+  font-size: calc(12 / 14.4 * 1vw);
+  line-height: 1;
+  text-align: center;
+  transition: border-color .25s ease, background .25s ease;
+}
+
+.team-brand__material-visual {
+  position: absolute;
+  width: 38%;
+  aspect-ratio: 1;
+  top: 28%;
+  right: 4%;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .34);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.team-brand__material-visual i {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff, #ff9e68);
+  box-shadow: 0 calc(8 / 14.4 * 1vw) calc(16 / 14.4 * 1vw) rgba(103, 57, 74, .14);
+}
+
+.team-brand__material-visual i:first-child { width: 54%; height: 54%; top: 6%; left: 5%; }
+.team-brand__material-visual i:nth-child(2) { width: 42%; height: 42%; right: 4%; bottom: 8%; background: linear-gradient(145deg, #fff, #ff79b1); }
+.team-brand__material-visual i:last-child { width: 24%; height: 24%; top: 8%; right: 8%; background: #111; }
+
+.team-brand__material.is-marketing .team-brand__material-body h3,
+.team-brand__material.is-product .team-brand__material-body p,
+.team-brand__material.is-product .team-brand__material-label,
+.team-brand__material.is-brand .team-brand__material-body > small {
+  border-color: #ff76a8;
+  background: rgba(255, 255, 255, .72);
+}
+
+.team-brand__material.is-brand .team-brand__material-body > small {
+  box-shadow: 0 0 calc(14 / 14.4 * 1vw) rgba(255, 105, 167, .28);
+}
+
+.team-brand__material.is-design .team-brand__material-visual {
+  border-color: #c373ff;
+  box-shadow: 0 0 calc(18 / 14.4 * 1vw) rgba(195, 115, 255, .25);
+}
+
+.team-brand__core .team-brand__focus {
+  width: 100%;
+  margin-top: calc(14 / 14.4 * 1vw);
+  animation: team-brand-content-in .35s ease both;
+  text-align: center;
+}
+
+.team-brand__focus > span:first-child {
+  color: #111;
+  font-weight: 500;
+}
+
+.team-brand__role {
+  justify-content: flex-end;
+  padding: calc(28 / 14.4 * 1vw);
+  border-radius: calc(16 / 14.4 * 1vw);
+  color: #111;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  touch-action: manipulation;
+  transition: background-color 300ms ease, border-color 300ms ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.team-brand__role.is-active {
+  border-color: rgba(255, 112, 168, .58);
+  background: #fffaf8;
+  box-shadow: 0 calc(10 / 14.4 * 1vw) calc(24 / 14.4 * 1vw) rgba(81, 59, 77, .07);
+}
+
+@media (hover:hover) {
+  .team-brand__role:not(.is-active):hover {
+    background-color: #f5f5f7;
+  }
+}
+
+.team-brand__role:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: calc(3 / 14.4 * 1vw);
+}
+
+.team-brand__role-marker {
+  width: max-content;
+  margin-bottom: auto;
+  padding: calc(6 / 14.4 * 1vw) calc(10 / 14.4 * 1vw);
+  border-radius: calc(8 / 14.4 * 1vw);
+  background: #f1f1f3;
+  color: #8b8c91;
+  font-size: calc(12 / 14.4 * 1vw);
+  line-height: 1.5;
+}
+
+.team-brand__role-title {
+  display: block;
+  margin: calc(36 / 14.4 * 1vw) 0 calc(8 / 14.4 * 1vw);
+  font-size: calc(22 / 14.4 * 1vw);
+  font-weight: 500;
+  line-height: 1.2727;
+}
+
+.team-brand__role p {
+  max-width: calc(270 / 14.4 * 1vw);
+  margin: 0;
+  color: #68686b;
+  font-size: calc(14 / 14.4 * 1vw);
+  line-height: 1.4286;
+}
+
+.team-brand__role.is-marketing { grid-area: marketing; }
+.team-brand__role.is-design { grid-area: design; }
+.team-brand__role.is-product { grid-area: product; }
+.team-brand__role.is-brand { grid-area: brand; }
+
+.team-brand__result {
+  display: grid;
+  min-height: calc(112 / 14.4 * 1vw);
+  align-items: center;
+  grid-template-columns: calc(150 / 14.4 * 1vw) minmax(0, 1fr) auto;
+  gap: calc(24 / 14.4 * 1vw);
+  margin-top: calc(12 / 14.4 * 1vw);
+  padding: calc(24 / 14.4 * 1vw) calc(28 / 14.4 * 1vw);
+  border-radius: calc(16 / 14.4 * 1vw);
+  border: 1px solid rgba(255, 255, 255, .72);
+  background: linear-gradient(157deg, #fff 8%, #ffcdb3 32%, #ffa4b6 52%, #ffb2e9 68%, #d4d6ff 92%);
+  color: #111;
+}
+
+.team-brand__result strong {
+  font-size: calc(22 / 14.4 * 1vw);
+  font-weight: 500;
+  line-height: 1.2727;
+  animation: team-brand-content-in .35s ease both;
+}
+
+.team-brand__swatches {
+  display: flex;
+  align-items: center;
+}
+
+.team-brand__swatches i {
+  width: calc(34 / 14.4 * 1vw);
+  height: calc(34 / 14.4 * 1vw);
+  margin-left: calc(-8 / 14.4 * 1vw);
+  border: calc(3 / 14.4 * 1vw) solid rgba(255, 255, 255, .82);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.team-brand__swatches i:nth-child(2) { background: #ffb17e; }
+.team-brand__swatches i:nth-child(3) { background: #ff77ad; }
+.team-brand__swatches i:nth-child(4) { background: #c885ff; }
+
+@keyframes team-brand-content-in {
+  from { opacity: 0; transform: translateY(calc(6 / 14.4 * 1vw)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width:1023px) {
+  .team-brand__surface {
+    padding: calc(10 / 8.1 * 1vw);
+    border-radius: calc(16 / 8.1 * 1vw);
+  }
+
+  .team-brand__diagram {
+    min-height: calc(430 / 8.1 * 1vw);
+    grid-template-columns: minmax(0, .72fr) minmax(calc(320 / 8.1 * 1vw), 1.55fr) minmax(0, .72fr);
+    gap: calc(10 / 8.1 * 1vw);
+  }
+
+  .team-brand__core {
+    padding: calc(28 / 8.1 * 1vw);
+    border-radius: calc(14 / 8.1 * 1vw);
+  }
+
+  .team-brand__core img {
+    height: calc(20 / 8.1 * 1vw);
+    margin: calc(14 / 8.1 * 1vw) 0;
+  }
+
+  .team-brand__core h3 {
+    margin-bottom: calc(10 / 8.1 * 1vw);
+    font-size: calc(28 / 8.1 * 1vw);
+  }
+
+  .team-brand__core p,
+  .team-brand__role p {
+    font-size: calc(14 / 8.1 * 1vw);
+  }
+
+  .team-brand__core > span,
+  .team-brand__result > span,
+  .team-brand__role-marker {
+    font-size: calc(12 / 8.1 * 1vw);
+  }
+
+  .team-brand__role {
+    padding: calc(20 / 8.1 * 1vw) calc(16 / 8.1 * 1vw);
+    border-radius: calc(12 / 8.1 * 1vw);
+  }
+
+  .team-brand__role:focus-visible {
+    outline-offset: calc(3 / 8.1 * 1vw);
+  }
+
+  .team-brand__role-marker {
+    padding: calc(5 / 8.1 * 1vw) calc(8 / 8.1 * 1vw);
+    border-radius: calc(7 / 8.1 * 1vw);
+  }
+
+  .team-brand__role-title {
+    margin: calc(24 / 8.1 * 1vw) 0 calc(6 / 8.1 * 1vw);
+    font-size: calc(20 / 8.1 * 1vw);
+  }
+
+  .team-brand__material {
+    border-radius: calc(10 / 8.1 * 1vw);
+  }
+
+  .team-brand__material-bar {
+    height: calc(28 / 8.1 * 1vw);
+    gap: calc(4 / 8.1 * 1vw);
+    padding-inline: calc(9 / 8.1 * 1vw);
+  }
+
+  .team-brand__material-bar i {
+    width: calc(4 / 8.1 * 1vw);
+    height: calc(4 / 8.1 * 1vw);
+  }
+
+  .team-brand__material-bar small {
+    font-size: calc(12 / 8.1 * 1vw);
+  }
+
+  .team-brand__material-body {
+    min-height: calc(255 / 8.1 * 1vw);
+    padding: calc(20 / 8.1 * 1vw);
+  }
+
+  .team-brand__material-label {
+    margin-bottom: calc(8 / 8.1 * 1vw);
+    padding: calc(5 / 8.1 * 1vw) calc(7 / 8.1 * 1vw) calc(3 / 8.1 * 1vw);
+    border-radius: calc(5 / 8.1 * 1vw);
+    font-size: calc(12 / 8.1 * 1vw);
+  }
+
+  .team-brand__material .team-brand__material-body h3 {
+    margin-bottom: calc(7 / 8.1 * 1vw);
+    padding: calc(3 / 8.1 * 1vw);
+    border-radius: calc(5 / 8.1 * 1vw);
+    font-size: calc(22 / 8.1 * 1vw);
+  }
+
+  .team-brand__material .team-brand__material-body p {
+    margin-bottom: calc(16 / 8.1 * 1vw);
+    padding: calc(3 / 8.1 * 1vw);
+    border-radius: calc(5 / 8.1 * 1vw);
+    font-size: calc(14 / 8.1 * 1vw);
+  }
+
+  .team-brand__material-body > strong {
+    padding: calc(7 / 8.1 * 1vw) calc(10 / 8.1 * 1vw);
+    border-radius: calc(7 / 8.1 * 1vw);
+    font-size: calc(12 / 8.1 * 1vw);
+  }
+
+  .team-brand__material-body > small {
+    right: calc(10 / 8.1 * 1vw);
+    bottom: calc(10 / 8.1 * 1vw);
+    padding: calc(4 / 8.1 * 1vw) calc(7 / 8.1 * 1vw);
+    border-radius: calc(5 / 8.1 * 1vw);
+    font-size: calc(12 / 8.1 * 1vw);
+  }
+
+  .team-brand__core .team-brand__focus {
+    margin-top: calc(12 / 8.1 * 1vw);
+    font-size: calc(12 / 8.1 * 1vw);
+  }
+
+  .team-brand__focus-detail {
+    display: block;
+  }
+
+  .team-brand__result {
+    min-height: calc(96 / 8.1 * 1vw);
+    grid-template-columns: calc(125 / 8.1 * 1vw) minmax(0, 1fr) auto;
+    gap: calc(18 / 8.1 * 1vw);
+    margin-top: calc(10 / 8.1 * 1vw);
+    padding: calc(20 / 8.1 * 1vw);
+    border-radius: calc(12 / 8.1 * 1vw);
+  }
+
+  .team-brand__result strong {
+    font-size: calc(20 / 8.1 * 1vw);
+  }
+
+  .team-brand__result-line {
+    display: block;
+  }
+
+  .team-brand__swatches i {
+    width: calc(28 / 8.1 * 1vw);
+    height: calc(28 / 8.1 * 1vw);
+    margin-left: calc(-7 / 8.1 * 1vw);
+    border-width: calc(3 / 8.1 * 1vw);
+  }
+}
+
+@media (max-width:767px) {
+  .team-brand__surface {
+    padding: calc(6 / 3.75 * 1vw);
+    border-radius: calc(12 / 3.75 * 1vw);
+  }
+
+  .team-brand__diagram {
+    min-height: 0;
+    grid-template-areas:
+      'marketing design'
+      'product brand'
+      'core core';
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(6 / 3.75 * 1vw);
+  }
+
+  .team-brand__core {
+    min-height: calc(330 / 3.75 * 1vw);
+    padding: calc(14 / 3.75 * 1vw);
+    border-radius: calc(10 / 3.75 * 1vw);
+  }
+
+  .team-brand__core > span,
+  .team-brand__result > span,
+  .team-brand__role-marker {
+    font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .team-brand__core img {
+    height: calc(18 / 3.75 * 1vw);
+    margin: calc(10 / 3.75 * 1vw) 0;
+  }
+
+  .team-brand__core h3 {
+    max-width: calc(270 / 3.75 * 1vw);
+    margin-bottom: calc(10 / 3.75 * 1vw);
+    font-size: calc(28 / 3.75 * 1vw);
+  }
+
+  .team-brand__core p {
+    max-width: calc(280 / 3.75 * 1vw);
+    font-size: calc(14 / 3.75 * 1vw);
+  }
+
+  .team-brand__role {
+    min-height: calc(56 / 3.75 * 1vw);
+    align-items: center;
+    justify-content: center;
+    padding: calc(8 / 3.75 * 1vw);
+    border-radius: calc(10 / 3.75 * 1vw);
+    text-align: center;
+  }
+
+  .team-brand__role:focus-visible {
+    outline-offset: calc(3 / 3.75 * 1vw);
+  }
+
+  .team-brand__role-marker {
+    display: none;
+  }
+
+  .team-brand__role-title {
+    margin: 0;
+    font-size: calc(14 / 3.75 * 1vw);
+    line-height: 1.1429;
+  }
+
+  .team-brand__role p {
+    display: none;
+  }
+
+  .team-brand__material {
+    border-radius: calc(8 / 3.75 * 1vw);
+  }
+
+  .team-brand__material-bar {
+    height: calc(26 / 3.75 * 1vw);
+    gap: calc(4 / 3.75 * 1vw);
+    padding-inline: calc(9 / 3.75 * 1vw);
+  }
+
+  .team-brand__material-bar i {
+    width: calc(4 / 3.75 * 1vw);
+    height: calc(4 / 3.75 * 1vw);
+  }
+
+  .team-brand__material-bar small {
+    font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .team-brand__material-body {
+    min-height: calc(205 / 3.75 * 1vw);
+    padding: calc(16 / 3.75 * 1vw);
+  }
+
+  .team-brand__material-label {
+    margin-bottom: calc(8 / 3.75 * 1vw);
+    padding: calc(5 / 3.75 * 1vw) calc(7 / 3.75 * 1vw) calc(3 / 3.75 * 1vw);
+    border-radius: calc(5 / 3.75 * 1vw);
+    font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .team-brand__material .team-brand__material-body h3 {
+    max-width: 76%;
+    margin-bottom: calc(7 / 3.75 * 1vw);
+    padding: calc(3 / 3.75 * 1vw);
+    border-radius: calc(5 / 3.75 * 1vw);
+    font-size: calc(20 / 3.75 * 1vw);
+  }
+
+  .team-brand__material .team-brand__material-body p {
+    max-width: 68%;
+    margin-bottom: calc(12 / 3.75 * 1vw);
+    padding: calc(3 / 3.75 * 1vw);
+    border-radius: calc(5 / 3.75 * 1vw);
+    font-size: calc(14 / 3.75 * 1vw);
+  }
+
+  .team-brand__material-body > strong {
+    padding: calc(7 / 3.75 * 1vw) calc(10 / 3.75 * 1vw);
+    border-radius: calc(7 / 3.75 * 1vw);
+    font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .team-brand__material-body > small {
+    right: calc(10 / 3.75 * 1vw);
+    bottom: calc(10 / 3.75 * 1vw);
+    padding: calc(4 / 3.75 * 1vw) calc(7 / 3.75 * 1vw);
+    border-radius: calc(5 / 3.75 * 1vw);
+    font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .team-brand__core .team-brand__focus {
+    margin-top: calc(10 / 3.75 * 1vw);
+    font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .team-brand__focus-detail {
+    display: inline;
+  }
+
+  .team-brand__result {
+    min-height: 0;
+    grid-template-columns: 1fr auto;
+    gap: calc(8 / 3.75 * 1vw) calc(12 / 3.75 * 1vw);
+    margin-top: calc(6 / 3.75 * 1vw);
+    padding: calc(18 / 3.75 * 1vw);
+    border-radius: calc(10 / 3.75 * 1vw);
+  }
+
+  .team-brand__result > span {
+    grid-column: 1 / -1;
+  }
+
+  .team-brand__result strong {
+    font-size: calc(18 / 3.75 * 1vw);
+  }
+
+  .team-brand__result-line {
+    display: inline;
+  }
+
+  .team-brand__swatches i {
+    width: calc(24 / 3.75 * 1vw);
+    height: calc(24 / 3.75 * 1vw);
+    margin-left: calc(-6 / 3.75 * 1vw);
+    border-width: calc(2 / 3.75 * 1vw);
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .team-brand__focus,
+  .team-brand__result strong {
+    animation: none;
+  }
+
+  .team-brand__role {
+    transition: none;
+  }
+}

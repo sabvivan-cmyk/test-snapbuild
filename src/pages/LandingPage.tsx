@@ -10,6 +10,7 @@ import {
   AiControlSection,
   AudienceAdaptationSection,
   DesignToMaterialSection,
+  TeamBrandSection,
   WorkScenariosSection,
 } from '../components/sections/new'
 
@@ -24,6 +25,7 @@ export function LandingPage() {
       <WorkScenariosSection />
       <AudienceAdaptationSection />
       <BenefitsSection />
+      <TeamBrandSection />
       <SecuritySection />
       <RoadmapSection />
       <FaqSection />
