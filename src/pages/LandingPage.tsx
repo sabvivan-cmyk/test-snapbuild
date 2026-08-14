@@ -6,7 +6,7 @@ import { HeroSection } from '../components/sections/existing/HeroSection'
 import { PlatformSection } from '../components/sections/existing/PlatformSection'
 import { RoadmapSection } from '../components/sections/existing/RoadmapSection'
 import { SecuritySection } from '../components/sections/existing/SecuritySection'
-import { DesignToMaterialSection } from '../components/sections/new'
+import { AiControlSection, DesignToMaterialSection } from '../components/sections/new'
 
 export function LandingPage() {
   return (
@@ -15,6 +15,7 @@ export function LandingPage() {
       <PlatformSection />
       <DesignToMaterialSection />
       <CapabilitiesSection />
+      <AiControlSection />
       <BenefitsSection />
       <SecuritySection />
       <RoadmapSection />
