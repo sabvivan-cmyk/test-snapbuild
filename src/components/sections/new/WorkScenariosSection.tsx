@@ -1,80 +1,90 @@
-import { useId, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 
 import { SectionHeader } from '../../ui/SectionHeader'
 
 const scenarios = [
   {
-    id: 'marketing',
-    label: 'Маркетинг',
-    task: 'Запустить кампанию для нового предложения',
-    source: 'Оффер и сегменты аудитории',
-    action: 'Адаптировать сообщение под каждый сегмент',
-    actionNote: 'Акценты меняются под контекст аудитории',
-    result: 'Материалы кампании в едином стиле',
-    resultNote: 'Готовые варианты связаны одной визуальной системой',
-    visualTitle: 'Новое предложение',
-    visualLabel: 'Кампания',
-    visualItems: [
-      { title: 'Новая\u00a0аудитория', text: 'Знакомство с\u00a0предложением' },
-      { title: 'Текущие\u00a0клиенты', text: 'Акцент на\u00a0новых возможностях' },
-      { title: 'Партнёры', text: 'Аргументы для\u00a0коммуникации' },
-    ],
-  },
-  {
-    id: 'design',
-    label: 'Дизайн',
-    task: 'Закрепить правила бренда для новых материалов',
-    source: 'Компоненты, цвета и типографика',
-    action: 'Собрать визуальные правила в дизайн-системе',
-    actionNote: 'Правила становятся основой для новых материалов',
-    result: 'Единая основа для следующих запусков',
-    resultNote: 'Команда работает с согласованными элементами бренда',
-    visualTitle: 'Дизайн-система',
-    visualLabel: 'Правила бренда',
-    visualItems: [
-      { title: 'Компоненты', text: 'Единые элементы' },
-      { title: 'Типографика', text: 'Заданные стили текста' },
-      { title: 'Цвета', text: 'Палитра бренда' },
-    ],
-  },
-  {
-    id: 'product',
-    label: 'Продукт',
-    task: 'Быстро представить новое предложение',
+    id: 'launch',
+    label: 'Запуск продукта',
+    task: ['Подготовить коммуникацию', 'к запуску продукта'],
     source: 'Описание продукта и ключевые преимущества',
-    action: 'Собрать структуру и уточнить содержание',
-    actionNote: 'Информация выстраивается вокруг главной ценности',
-    result: 'Готовый материал для запуска',
-    resultNote: 'Предложение понятно показывает продукт и следующий шаг',
+    action: ['Выстроить сообщение', 'вокруг главной ценности'],
+    actionNote: 'Факты превращаются в понятную историю запуска',
+    result: ['Материал для первого', 'анонса продукта'],
+    resultNote: 'Главная идея, преимущества и следующий шаг собраны вместе',
     visualTitle: 'Новый продукт',
     visualLabel: 'Запуск',
     visualItems: [
-      { title: 'Ценность', text: 'Главная идея предложения' },
+      { title: 'Ценность', text: 'Главная идея продукта' },
       { title: 'Преимущества', text: 'Ключевые аргументы' },
-      { title: 'Действие', text: 'Следующий\u00a0шаг пользователя' },
+      { title: 'Действие', text: 'Следующий шаг' },
     ],
   },
   {
-    id: 'sales',
-    label: 'Продажи',
-    task: 'Подготовиться к встрече с клиентом',
+    id: 'campaign',
+    label: 'Кампания',
+    task: ['Поддержать предложение', 'рекламной кампанией'],
+    source: 'Идея кампании и ключевое сообщение',
+    action: ['Развернуть идею', 'в набор материалов'],
+    actionNote: 'Каждый материал продолжает одну коммуникационную идею',
+    result: ['Цельная кампания', 'для точек контакта'],
+    resultNote: 'Сообщение узнаётся на каждом этапе коммуникации',
+    visualTitle: 'Кампания запуска',
+    visualLabel: 'Коммуникация',
+    visualItems: [
+      { title: 'Анонс', text: 'Первое знакомство' },
+      { title: 'Аргументы', text: 'Раскрытие ценности' },
+      { title: 'Отклик', text: 'Переход к действию' },
+    ],
+  },
+  {
+    id: 'meeting',
+    label: 'Встреча с клиентом',
+    task: ['Подготовиться к встрече', 'с конкретным клиентом'],
     source: 'Контекст клиента и тезисы предложения',
-    action: 'Расставить акценты под разговор',
-    actionNote: 'Содержание учитывает контекст конкретного клиента',
-    result: 'Материал для конкретной встречи',
-    resultNote: 'Основные аргументы собраны в логичную последовательность',
-    visualTitle: 'Предложение\u00a0для\u00a0клиента',
+    action: ['Выстроить аргументы', 'в логичном порядке'],
+    actionNote: 'Материал помогает провести клиента от задачи к решению',
+    result: ['Готовое предложение', 'для предметной встречи'],
+    resultNote: 'Контекст, решение и следующий шаг находятся перед глазами',
+    visualTitle: 'Предложение для клиента',
     visualLabel: 'Встреча',
     visualItems: [
       { title: 'Контекст', text: 'Задача клиента' },
-      { title: 'Решение', text: 'Релевантные преимущества' },
-      { title: 'Следующий\u00a0шаг', text: 'Продолжение разговора' },
+      { title: 'Решение', text: 'Релевантные аргументы' },
+      { title: 'Продолжение', text: 'Следующий шаг' },
+    ],
+  },
+  {
+    id: 'update',
+    label: 'Обновление',
+    task: ['Актуализировать материал', 'после изменений продукта'],
+    source: 'Новые условия и актуальные факты',
+    action: ['Пересобрать содержание', 'вокруг новой ценности'],
+    actionNote: 'Устаревшие акценты уступают место новой информации',
+    result: ['Актуальная версия', 'материала о продукте'],
+    resultNote: 'Предложение соответствует текущему состоянию продукта',
+    visualTitle: 'Обновлённое предложение',
+    visualLabel: 'Новая версия',
+    visualItems: [
+      { title: 'Условия', text: 'Актуальные данные' },
+      { title: 'Ценность', text: 'Новый главный акцент' },
+      { title: 'Версия', text: 'Готово к публикации' },
     ],
   },
 ] as const
 
 type Scenario = (typeof scenarios)[number]
+
+function ScenarioHeading({ lines }: { lines: readonly [string, string] }) {
+  return (
+    <h3>
+      {lines[0]}
+      <br className="work-scenario__desktop-break" />{' '}
+      {lines[1]}
+    </h3>
+  )
+}
 
 function ScenarioPanel({ scenario, headingId, panelId, isActive }: {
   scenario: Scenario
@@ -96,17 +106,17 @@ function ScenarioPanel({ scenario, headingId, panelId, isActive }: {
       <div className="work-scenario__details">
         <div className="work-scenario__task">
           <span>Задача</span>
-          <h3>{scenario.task}</h3>
+          <ScenarioHeading lines={scenario.task} />
           <p><b>На входе:</b> {scenario.source}</p>
         </div>
         <div>
           <span>Действие</span>
-          <strong>{scenario.action}</strong>
+          <ScenarioHeading lines={scenario.action} />
           <p>{scenario.actionNote}</p>
         </div>
         <div>
           <span>Результат</span>
-          <strong>{scenario.result}</strong>
+          <ScenarioHeading lines={scenario.result} />
           <p>{scenario.resultNote}</p>
         </div>
       </div>
@@ -126,11 +136,11 @@ function ScenarioPanel({ scenario, headingId, panelId, isActive }: {
         </div>
 
         <div aria-hidden="true" className="work-scenario__connector">
-          <span>Снэпбилд</span>
+          <span>снэпбилд</span>
           <i />
         </div>
 
-        <div className="work-scenario__output">
+        <div className="work-scenario__output" key={scenario.id}>
           <div className="work-scenario__meta">
             <span>{scenario.visualLabel}</span>
             <small className="work-scenario__result-badge">{'Готовый\u00a0результат'}</small>
@@ -153,8 +163,26 @@ function ScenarioPanel({ scenario, headingId, panelId, isActive }: {
 
 export function WorkScenariosSection() {
   const [activeScenario, setActiveScenario] = useState(0)
+  const [scrollIndicator, setScrollIndicator] = useState({ offset: 0, size: 100 })
   const sectionId = useId()
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const tabsRef = useRef<HTMLDivElement | null>(null)
+
+  const updateScrollIndicator = () => {
+    const tabs = tabsRef.current
+    if (!tabs) return
+
+    const maxScroll = tabs.scrollWidth - tabs.clientWidth
+    const size = Math.min(100, (tabs.clientWidth / tabs.scrollWidth) * 100)
+    const offset = maxScroll > 0 ? (tabs.scrollLeft / maxScroll) * (100 - size) : 0
+    setScrollIndicator({ offset, size })
+  }
+
+  useEffect(() => {
+    updateScrollIndicator()
+    window.addEventListener('resize', updateScrollIndicator)
+    return () => window.removeEventListener('resize', updateScrollIndicator)
+  }, [])
 
   const selectScenario = (index: number) => {
     setActiveScenario(index)
@@ -177,8 +205,8 @@ export function WorkScenariosSection() {
   return (
     <section className="section work-scenarios" id="work-scenarios">
       <SectionHeader
-        title="Одна платформа — разные рабочие задачи"
-        description="От запуска кампании до встречи с клиентом — каждый сценарий начинается с конкретной задачи"
+        title={<>Одна платформа —<br className="section-header__mobile-break" />{' разные задачи'}</>}
+        description="От запуска продукта до обновления предложения — выбирайте сценарий под конкретную ситуацию"
       />
 
       <div className="work-scenarios__body">
@@ -186,6 +214,8 @@ export function WorkScenariosSection() {
           aria-label="Рабочие сценарии"
           aria-orientation="horizontal"
           className="work-scenarios__tabs"
+          onScroll={updateScrollIndicator}
+          ref={tabsRef}
           role="tablist"
         >
           {scenarios.map((scenario, index) => {
@@ -211,6 +241,9 @@ export function WorkScenariosSection() {
               </button>
             )
           })}
+        </div>
+        <div aria-hidden="true" className="work-scenarios__scrollbar">
+          <i style={{ left: `${scrollIndicator.offset}%`, width: `${scrollIndicator.size}%` }} />
         </div>
 
         <div className="work-scenarios__panels">

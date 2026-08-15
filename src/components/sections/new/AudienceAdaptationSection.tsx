@@ -83,7 +83,7 @@ export function AudienceAdaptationSection() {
       ref={sectionRef}
     >
       <SectionHeader
-        title="Один материал — для разных аудиторий"
+        title={<>Один материал —<br className="section-header__mobile-break" />{' разные аудитории'}</>}
         description="Меняйте смысловые акценты под контекст аудитории, сохраняя визуальный язык бренда"
       />
 

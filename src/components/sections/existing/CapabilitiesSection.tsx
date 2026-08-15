@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
+import type { KeyboardEvent } from 'react'
 import tab11 from '../../../assets/snapbuild/use-cases-tab1-item1-v2.webp'
 import tab12 from '../../../assets/snapbuild/use-cases-tab1-item2.webp'
 import tab13 from '../../../assets/snapbuild/use-cases-tab1-item3.webp'
@@ -60,12 +61,30 @@ export function CapabilitiesSection() {
   const [tabIndex, setTabIndex] = useState(0)
   const [itemIndex, setItemIndex] = useState(0)
   const [cycle, setCycle] = useState(0)
+  const sectionId = useId()
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
   const active = capabilities[tabIndex]
   const item = active.items[itemIndex]
   const selectTab = (index: number) => { setTabIndex(index); setItemIndex(0); setCycle((value) => value + 1) }
   const selectItem = (index: number) => { setItemIndex(index); setCycle((value) => value + 1) }
 
+  const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return
+    event.preventDefault()
+
+    let nextIndex = index
+    if (event.key === 'Home') nextIndex = 0
+    else if (event.key === 'End') nextIndex = capabilities.length - 1
+    else if (event.key === 'ArrowRight') nextIndex = (index + 1) % capabilities.length
+    else nextIndex = (index - 1 + capabilities.length) % capabilities.length
+
+    selectTab(nextIndex)
+    tabRefs.current[nextIndex]?.focus()
+  }
+
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
     const timer = window.setTimeout(() => {
       if (itemIndex < active.items.length - 1) setItemIndex(itemIndex + 1)
       else { setTabIndex((tabIndex + 1) % capabilities.length); setItemIndex(0) }
@@ -73,5 +92,60 @@ export function CapabilitiesSection() {
     return () => window.clearTimeout(timer)
   }, [active.items.length, cycle, itemIndex, tabIndex])
 
-  return <section className="section capabilities" id="capabilities"><header className="capabilities__header"><h2><span className="wide-copy">{'Любой контент в\u00a0фирменном стиле'}<br />{'за\u00a0считанные минуты'}</span><span className="narrow-copy">Любой контент<br />{'в\u00a0фирменном стиле'}<br />{'за\u00a0считанные минуты'}</span></h2><div className="capabilities__tabs" role="tablist" aria-label="Типы контента">{capabilities.map((tab, index) => <button aria-selected={index === tabIndex} key={tab.id} onClick={() => selectTab(index)} role="tab" type="button">{tab.label}</button>)}</div></header><div className="capability-panel"><div className="capability-panel__items">{active.items.map((entry, index) => <button className={index === itemIndex ? 'is-active dds-tabs-card--active' : ''} key={entry.title} onClick={() => selectItem(index)} type="button"><strong>{entry.title}</strong><span>{entry.text}</span>{index === itemIndex && <i key={`${tabIndex}-${itemIndex}-${cycle}`} />}</button>)}</div><div className="capability-panel__media"><img src={item.image} alt="" /></div></div></section>
+  return (
+    <section className="section capabilities" id="capabilities">
+      <header className="capabilities__header">
+        <h2>
+          <span className="wide-copy">{'Любой контент в\u00a0фирменном стиле'}<br />{'за\u00a0считанные минуты'}</span>
+          <span className="narrow-copy">Любой контент<br />{'в\u00a0фирменном стиле'}<br />{'за\u00a0считанные минуты'}</span>
+        </h2>
+        <div aria-label="Типы контента" className="capabilities__tabs" role="tablist">
+          {capabilities.map((tab, index) => {
+            const isActive = index === tabIndex
+
+            return (
+              <button
+                aria-controls={`${sectionId}-panel`}
+                aria-selected={isActive}
+                id={`${sectionId}-${tab.id}-tab`}
+                key={tab.id}
+                onClick={() => selectTab(index)}
+                onKeyDown={(event) => handleTabKeyDown(event, index)}
+                ref={(node) => { tabRefs.current[index] = node }}
+                role="tab"
+                tabIndex={isActive ? 0 : -1}
+                type="button"
+              >
+                {tab.label}
+              </button>
+            )
+          })}
+        </div>
+      </header>
+
+      <div
+        aria-labelledby={`${sectionId}-${active.id}-tab`}
+        className="capability-panel"
+        id={`${sectionId}-panel`}
+        role="tabpanel"
+      >
+        <div className="capability-panel__items">
+          {active.items.map((entry, index) => (
+            <button
+              aria-pressed={index === itemIndex}
+              className={index === itemIndex ? 'is-active dds-tabs-card--active' : ''}
+              key={entry.title}
+              onClick={() => selectItem(index)}
+              type="button"
+            >
+              <strong>{entry.title}</strong>
+              <span>{entry.text}</span>
+              {index === itemIndex && <i key={`${tabIndex}-${itemIndex}-${cycle}`} />}
+            </button>
+          ))}
+        </div>
+        <div className="capability-panel__media"><img src={item.image} alt="" /></div>
+      </div>
+    </section>
+  )
 }

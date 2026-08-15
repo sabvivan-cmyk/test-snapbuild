@@ -38,7 +38,7 @@ export function AiControlSection() {
   return (
     <section className="section ai-control" id="ai-control">
       <SectionHeader
-        title="AI предлагает — вы управляете"
+        title={<>AI предлагает —<br className="section-header__mobile-break" />{' вы управляете'}</>}
         description={'Уточняйте результат через AI или редактируйте вручную — в рамках вашей дизайн-системы'}
       />
 

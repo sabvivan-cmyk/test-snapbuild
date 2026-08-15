@@ -1,5 +1,7 @@
+import type { ReactNode } from 'react'
+
 type SectionHeaderProps = {
-  title: string
+  title: ReactNode
   description?: string
   align?: 'start' | 'center'
 }

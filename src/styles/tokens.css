@@ -21,7 +21,7 @@
   --color-text: #111113;
   --color-text-secondary: #68686b;
   --color-accent: #151517;
-  --color-focus: #315efb;
+  --color-focus: #ff6ca7;
   --font-family-sans: "TT Commons", Arial, Helvetica, sans-serif;
   --font-size-body: 16px;
   --line-height-body: 1.25;
@@ -31,12 +31,21 @@
   --page-padding: max(16px, calc(40 / 14.4 * 1vw));
   --section-padding-block: calc(64 / 14.4 * 1vw);
   --radius-card: calc(20 / 14.4 * 1vw);
+  --radius-action: 12px;
 }
 
 @media (max-width: 1023px) {
-  :root { --page-padding: calc(20 / 7.68 * 1vw); --section-padding-block: calc(48 / 7.68 * 1vw); --radius-card: calc(12 / 7.68 * 1vw); }
+  :root { --page-padding: calc(20 / 7.68 * 1vw); --section-padding-block: calc(48 / 7.68 * 1vw); --radius-card: calc(12 / 7.68 * 1vw); --radius-action: calc(12 / 8.1 * 1vw); }
 }
 
 @media (max-width: 767px) {
-  :root { --page-padding: calc(16 / 3.75 * 1vw); --section-padding-block: calc(40 / 3.75 * 1vw); --radius-card: calc(6 / 3.75 * 1vw); }
+  :root { --page-padding: calc(16 / 3.75 * 1vw); --section-padding-block: calc(40 / 3.75 * 1vw); --radius-card: calc(6 / 3.75 * 1vw); --radius-action: 12px; }
+}
+
+@media (min-width: 1440px) and (max-width: 2559.98px) {
+  :root { --radius-action: calc(12 / 14.4 * 1vw); }
+}
+
+@media (min-width: 2560px) {
+  :root { --radius-action: 21.333px; }
 }

@@ -20,13 +20,17 @@
   margin-bottom: calc(24 / 14.4 * 1vw);
 }
 
+.work-scenarios__scrollbar {
+  display: none;
+}
+
 .work-scenarios__switch {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: calc(10 / 14.4 * 1vw) calc(16 / 14.4 * 1vw);
   border: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-action);
   background: #f5f5f7;
   color: #000;
   cursor: pointer;
@@ -173,9 +177,14 @@
 }
 
 .work-scenario__connector span {
-  color: #8b8c91;
-  font-size: calc(12 / 14.4 * 1vw);
+  background: linear-gradient(55.14deg, #ff6d3d 0%, #ff6ca7 46.15%, #bb6dff 94.23%);
+  background-clip: text;
+  color: transparent;
+  font-size: calc(15 / 14.4 * 1vw);
   line-height: 1.5;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
 }
 
 .work-scenario__connector i {
@@ -198,16 +207,45 @@
 }
 
 .work-scenario__output {
-  background: linear-gradient(145deg, #fff 12%, #ffe0d1 63%, #ffacd0);
+  --work-scenario-output-gradient: linear-gradient(145deg, #fff 16%, #e8e9ff 63%, #ffc8df);
+  background-image: var(--work-scenario-output-gradient);
+  background-size: 200% 200%;
+  animation: work-scenario-gradient-drift 8s ease-in-out infinite alternate;
 }
 
 .work-scenario__result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(7 / 14.4 * 1vw);
   padding: calc(6 / 14.4 * 1vw) calc(10 / 14.4 * 1vw);
   border-radius: calc(10 / 14.4 * 1vw);
-  background: #111;
-  color: #fff;
+  border: 1px solid rgba(107, 107, 114, .16);
+  background: rgba(255, 255, 255, .78);
+  box-shadow: 0 calc(6 / 14.4 * 1vw) calc(16 / 14.4 * 1vw) rgba(61, 61, 67, .08);
+  color: #5f5f65;
   font-size: calc(12 / 14.4 * 1vw);
   font-weight: 500;
+  backdrop-filter: blur(calc(8 / 14.4 * 1vw));
+}
+
+.work-scenario__result-badge::before {
+  width: calc(6 / 14.4 * 1vw);
+  height: calc(6 / 14.4 * 1vw);
+  border-radius: 50%;
+  background: #ff8a3d;
+  box-shadow: 0 0 calc(8 / 14.4 * 1vw) rgba(255, 129, 54, .65);
+  content: "";
+  flex: none;
+}
+
+@keyframes work-scenario-gradient-drift {
+  from {
+    background-position: 0% 20%;
+  }
+
+  to {
+    background-position: 100% 80%;
+  }
 }
 
 .work-scenario__visual {
@@ -249,19 +287,19 @@
   line-height: 1.5;
 }
 
-.work-scenario--design .work-scenario__output {
-  background: linear-gradient(145deg, #fff 15%, #f0e9ff 60%, #ffc9dd);
+.work-scenario--campaign .work-scenario__output {
+  --work-scenario-output-gradient: linear-gradient(145deg, #fff 12%, #ffe0d1 63%, #ffacd0);
 }
 
-.work-scenario--product .work-scenario__output {
-  background: linear-gradient(145deg, #fff 15%, #ffe7d7 58%, #ffd0e4);
+.work-scenario--meeting .work-scenario__output {
+  --work-scenario-output-gradient: linear-gradient(145deg, #fff 15%, #f0e9ff 60%, #ffc9dd);
 }
 
-.work-scenario--sales .work-scenario__output {
-  background: linear-gradient(145deg, #fff 16%, #e8e9ff 63%, #ffc8df);
+.work-scenario--update .work-scenario__output {
+  --work-scenario-output-gradient: linear-gradient(145deg, #fff 15%, #ffe7d7 58%, #ffd0e4);
 }
 
-.work-scenario--sales .work-scenario__output>strong {
+.work-scenario--meeting .work-scenario__output>strong {
   max-width: none;
 }
 
@@ -297,8 +335,7 @@
   line-height: 1.4286;
 }
 
-.work-scenario__details h3,
-.work-scenario__details strong {
+.work-scenario__details h3 {
   margin: 0;
   font-size: calc(18 / 14.4 * 1vw);
   font-weight: 500;
@@ -375,7 +412,7 @@
   }
 
   .work-scenario__connector span {
-    font-size: calc(14 / 8.1 * 1vw);
+    font-size: calc(12 / 8.1 * 1vw);
     line-height: 1.4286;
   }
 
@@ -384,9 +421,16 @@
   }
 
   .work-scenario__result-badge {
+    gap: calc(7 / 8.1 * 1vw);
     padding: calc(8 / 8.1 * 1vw) calc(12 / 8.1 * 1vw);
     border-radius: calc(8 / 8.1 * 1vw);
     font-size: calc(14 / 8.1 * 1vw);
+  }
+
+  .work-scenario__result-badge::before {
+    width: calc(6 / 8.1 * 1vw);
+    height: calc(6 / 8.1 * 1vw);
+    box-shadow: 0 0 calc(8 / 8.1 * 1vw) rgba(255, 129, 54, .65);
   }
 
   .work-scenario__visual {
@@ -433,8 +477,7 @@
     line-height: 1.4286;
   }
 
-  .work-scenario__details h3,
-  .work-scenario__details strong {
+  .work-scenario__details h3 {
     font-size: calc(18 / 8.1 * 1vw);
     line-height: 1.3333;
   }
@@ -446,13 +489,17 @@
 }
 
 @media (max-width:767px) {
+  .work-scenario__desktop-break {
+    display: none;
+  }
+
   .work-scenarios__tabs {
     display: flex;
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
     gap: calc(6 / 3.75 * 1vw);
-    margin: 0 0 calc(16 / 3.75 * 1vw);
+    margin: 0;
     scrollbar-width: none;
     overscroll-behavior-inline: contain;
     -webkit-overflow-scrolling: touch;
@@ -460,6 +507,25 @@
 
   .work-scenarios__tabs::-webkit-scrollbar {
     display: none;
+  }
+
+  .work-scenarios__scrollbar {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: calc(4 / 3.75 * 1vw);
+    overflow: hidden;
+    margin: calc(8 / 3.75 * 1vw) 0 calc(4 / 3.75 * 1vw);
+    border-radius: 999px;
+    background: #dedee0;
+  }
+
+  .work-scenarios__scrollbar i {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    border-radius: 999px;
+    background: #8b8c91;
   }
 
   .work-scenarios__switch {
@@ -551,9 +617,16 @@
   }
 
   .work-scenario__result-badge {
+    gap: calc(7 / 3.75 * 1vw);
     padding: calc(6 / 3.75 * 1vw) calc(10 / 3.75 * 1vw);
     border-radius: calc(6 / 3.75 * 1vw);
     font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .work-scenario__result-badge::before {
+    width: calc(6 / 3.75 * 1vw);
+    height: calc(6 / 3.75 * 1vw);
+    box-shadow: 0 0 calc(8 / 3.75 * 1vw) rgba(255, 129, 54, .65);
   }
 
   .work-scenario__visual {
@@ -618,8 +691,7 @@
     line-height: 1.5;
   }
 
-  .work-scenario__details h3,
-  .work-scenario__details strong {
+  .work-scenario__details h3 {
     font-size: calc(16 / 3.75 * 1vw);
     line-height: 1.5;
   }
@@ -638,18 +710,8 @@
   .work-scenario {
     transition: none;
   }
-}
 
-@media (min-width:1440px) and (max-width:2559.98px) {
-
-  .work-scenarios__switch {
-    border-radius: calc(12 / 14.4 * 1vw);
-  }
-}
-
-@media (min-width:2560px) {
-
-  .work-scenarios__switch {
-    border-radius: 21.333px;
+  .work-scenario__output {
+    animation: none;
   }
 }

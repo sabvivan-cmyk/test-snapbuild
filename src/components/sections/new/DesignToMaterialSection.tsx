@@ -67,7 +67,7 @@ export function DesignToMaterialSection() {
 
   useEffect(() => {
     if (previousStep === null) return
-    const timer = window.setTimeout(() => setPreviousStep(null), 720)
+    const timer = window.setTimeout(() => setPreviousStep(null), 900)
     return () => window.clearTimeout(timer)
   }, [activeStep, previousStep])
 
@@ -85,17 +85,17 @@ export function DesignToMaterialSection() {
 
   return (
     <section className="section design-workflow" id="workflow" ref={sectionRef}>
-      <SectionHeader title={'От дизайн-системы до\u00a0готового материала'} description={'Пять понятных этапов — от\u00a0правил бренда до\u00a0результата, готового к\u00a0работе'} />
+      <SectionHeader title={<>От дизайн-системы<br className="design-workflow__tablet-break" />{' до\u00a0готового материала'}</>} description={'Пять понятных этапов — от\u00a0правил бренда до\u00a0результата, готового к\u00a0работе'} />
       <div className="design-workflow__surface">
         <div className="design-workflow__steps" role="tablist" aria-label="Этапы создания материала">
           <div aria-hidden="true" className={`design-workflow__progress${isInViewport ? ' is-running' : ''}${activeStep === steps.length - 1 ? ' is-finishing' : ''}`} key={`${activeStep}-${cycle}`}>{steps.map((_, index) => <span className={index < activeStep ? 'is-complete' : index === activeStep ? 'is-current' : ''} key={index} />)}</div>
-          {steps.map((step, index) => <button aria-controls={`${tabsId}-panel`} aria-selected={activeStep === index} className={activeStep === index ? 'is-active' : index < activeStep ? 'is-complete' : ''} id={`${tabsId}-${index}`} key={step.title} onClick={() => selectStep(index)} onKeyDown={(event) => handleKeyDown(event, index)} role="tab" tabIndex={activeStep === index ? 0 : -1} type="button"><span>{String(index + 1).padStart(2, '0')}</span><strong>{step.title}</strong><small>{step.text}</small></button>)}
+          {steps.map((step, index) => <button aria-controls={`${tabsId}-panel`} aria-label={`${step.title}: ${step.text}`} aria-selected={activeStep === index} className={activeStep === index ? 'is-active' : index < activeStep ? 'is-complete' : ''} id={`${tabsId}-${index}`} key={step.title} onClick={() => selectStep(index)} onKeyDown={(event) => handleKeyDown(event, index)} role="tab" tabIndex={activeStep === index ? 0 : -1} type="button"><span>{String(index + 1).padStart(2, '0')}</span><strong>{step.title}</strong><small>{step.text}</small></button>)}
         </div>
         <div aria-labelledby={`${tabsId}-${activeStep}`} className="design-workflow__panel" id={`${tabsId}-panel`} role="tabpanel">
-          <div className="design-workflow__panel-copy" key={`copy-${activeStep}`}><span>Этап {activeStep + 1} из {steps.length}</span><h3>{steps[activeStep].title}</h3><p>{steps[activeStep].text}</p></div>
+          <div className="design-workflow__panel-copy"><span>Этап {activeStep + 1} из {steps.length}</span><h3>{steps[activeStep].title}</h3><p>{steps[activeStep].text}</p></div>
           <div aria-hidden="true" className="workflow-preview-stack">
             {previousStep !== null && <div className="workflow-preview-layer is-leaving"><WorkflowPreview step={previousStep} /></div>}
-            <div className={`workflow-preview-layer${previousStep !== null ? ' is-entering' : ''}`}><WorkflowPreview step={activeStep} /></div>
+            <div className={`workflow-preview-layer${previousStep !== null ? ' is-entering' : ''}`} key={`${activeStep}-${cycle}`}><WorkflowPreview step={activeStep} /></div>
           </div>
         </div>
       </div>
