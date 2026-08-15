@@ -37,7 +37,11 @@ function TeamMaterial({ role }: { role?: (typeof roles)[number] }) {
         <span className="team-brand__material-label">Новый продукт</span>
         <h3>Всё необходимое для уверенного старта</h3>
         <p>Главные преимущества продукта собраны в понятную историю</p>
-        <div aria-hidden="true" className="team-brand__material-visual"><i /><i /><i /></div>
+        <div aria-hidden="true" className="team-brand__material-visual">
+          <i />
+          <i />
+          <i />
+        </div>
         <strong>Узнать больше</strong>
         <small>В стиле бренда</small>
       </div>
@@ -61,9 +65,12 @@ export function TeamBrandSection() {
     const section = sectionRef.current
     if (!section) return
 
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsInViewport(entry.isIntersecting)
-    }, { threshold: 0.15 })
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInViewport(entry.isIntersecting)
+      },
+      { threshold: 0.15 },
+    )
 
     observer.observe(section)
     return () => observer.disconnect()
@@ -82,17 +89,41 @@ export function TeamBrandSection() {
   return (
     <section className="section team-brand" id="team-brand" ref={sectionRef}>
       <SectionHeader
-        title={<>Одна команда —<br className="section-header__mobile-break" />{' единый бренд'}</>}
+        title={
+          <>
+            Одна команда —<br className="section-header__mobile-break" />
+            {' единый бренд'}
+          </>
+        }
         description="У каждой роли своя задача. Дизайн-система сохраняет общий визуальный язык"
       />
 
       <div className="team-brand__surface">
         <div className="team-brand__diagram">
-          <article aria-label="Показать общий материал без выделения отдельной роли" aria-pressed={activeRole === roles.length} className={`team-brand__core${activeRole === roles.length ? ' is-active' : ''}`} id="team-brand-material" onClick={() => selectRole(roles.length)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectRole(roles.length) } }} role="button" tabIndex={0}>
+          <article
+            aria-label="Показать общий материал без выделения отдельной роли"
+            aria-pressed={activeRole === roles.length}
+            className={`team-brand__core${activeRole === roles.length ? ' is-active' : ''}`}
+            id="team-brand-material"
+            onClick={() => selectRole(roles.length)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                selectRole(roles.length)
+              }
+            }}
+            role="button"
+            tabIndex={0}
+          >
             <span>Один общий материал</span>
             <img src={logo} alt="Снэпбилд" />
             <div className="team-brand__material">
-              <div className="team-brand__material-bar"><i /><i /><i /><small>Страница продукта</small></div>
+              <div className="team-brand__material-bar">
+                <i />
+                <i />
+                <i />
+                <small>Страница продукта</small>
+              </div>
               <TeamMaterial role={selectedRole} />
             </div>
           </article>
@@ -115,8 +146,16 @@ export function TeamBrandSection() {
 
         <div className="team-brand__result">
           <span>Общий результат</span>
-          <strong>Вклад каждой роли работает <span className="team-brand__result-line">на один узнаваемый образ бренда</span></strong>
-          <div aria-hidden="true" className="team-brand__swatches"><i /><i /><i /><i /></div>
+          <strong>
+            Вклад каждой роли работает{' '}
+            <span className="team-brand__result-line">на один узнаваемый образ бренда</span>
+          </strong>
+          <div aria-hidden="true" className="team-brand__swatches">
+            <i />
+            <i />
+            <i />
+            <i />
+          </div>
         </div>
       </div>
     </section>

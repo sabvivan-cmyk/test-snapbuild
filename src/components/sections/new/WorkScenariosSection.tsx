@@ -80,13 +80,17 @@ function ScenarioHeading({ lines }: { lines: readonly [string, string] }) {
   return (
     <h3>
       {lines[0]}
-      <br className="work-scenario__desktop-break" />{' '}
-      {lines[1]}
+      <br className="work-scenario__desktop-break" /> {lines[1]}
     </h3>
   )
 }
 
-function ScenarioPanel({ scenario, headingId, panelId, isActive }: {
+function ScenarioPanel({
+  scenario,
+  headingId,
+  panelId,
+  isActive,
+}: {
   scenario: Scenario
   headingId: string
   panelId: string
@@ -107,7 +111,9 @@ function ScenarioPanel({ scenario, headingId, panelId, isActive }: {
         <div className="work-scenario__task">
           <span>Задача</span>
           <ScenarioHeading lines={scenario.task} />
-          <p><b>На входе:</b> {scenario.source}</p>
+          <p>
+            <b>На входе:</b> {scenario.source}
+          </p>
         </div>
         <div>
           <span>Действие</span>
@@ -128,10 +134,18 @@ function ScenarioPanel({ scenario, headingId, panelId, isActive }: {
           </div>
           <strong>
             {sourceLead}
-            {sourceTail.length > 0 && <><br />и {sourceTail.join(' и ')}</>}
+            {sourceTail.length > 0 && (
+              <>
+                <br />и {sourceTail.join(' и ')}
+              </>
+            )}
           </strong>
           <div aria-hidden="true" className="work-scenario__input-lines">
-            <i /><i /><i /><i /><i />
+            <i />
+            <i />
+            <i />
+            <i />
+            <i />
           </div>
         </div>
 
@@ -156,7 +170,6 @@ function ScenarioPanel({ scenario, headingId, panelId, isActive }: {
           </div>
         </div>
       </div>
-
     </div>
   )
 }
@@ -205,7 +218,12 @@ export function WorkScenariosSection() {
   return (
     <section className="section work-scenarios" id="work-scenarios">
       <SectionHeader
-        title={<>Одна платформа —<br className="section-header__mobile-break" />{' разные задачи'}</>}
+        title={
+          <>
+            Одна платформа —<br className="section-header__mobile-break" />
+            {' разные задачи'}
+          </>
+        }
         description="От запуска продукта до обновления предложения — выбирайте сценарий под конкретную ситуацию"
       />
 
@@ -232,7 +250,9 @@ export function WorkScenariosSection() {
                 key={scenario.id}
                 onClick={() => selectScenario(index)}
                 onKeyDown={(event) => handleKeyDown(event, index)}
-                ref={(node) => { buttonRefs.current[index] = node }}
+                ref={(node) => {
+                  buttonRefs.current[index] = node
+                }}
                 role="tab"
                 tabIndex={isActive ? 0 : -1}
                 type="button"

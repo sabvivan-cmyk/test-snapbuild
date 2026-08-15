@@ -6,7 +6,12 @@ type ButtonLinkProps = PropsWithChildren<
   }
 >
 
-export function ButtonLink({ children, className, variant = 'primary', ...props }: ButtonLinkProps) {
+export function ButtonLink({
+  children,
+  className,
+  variant = 'primary',
+  ...props
+}: ButtonLinkProps) {
   const classes = ['button-link', `button-link--${variant}`, className].filter(Boolean).join(' ')
 
   return (

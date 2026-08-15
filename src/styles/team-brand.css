@@ -23,8 +23,8 @@
   z-index: 1;
   display: flex;
   min-width: 0;
-  border: 1px solid rgba(0, 0, 0, .045);
-  background: rgba(255, 255, 255, .94);
+  border: 1px solid rgba(0, 0, 0, 0.045);
+  background: rgba(255, 255, 255, 0.94);
   flex-direction: column;
 }
 
@@ -34,16 +34,24 @@
   justify-content: center;
   padding: calc(24 / 14.4 * 1vw);
   border-radius: calc(18 / 14.4 * 1vw);
-  background: rgba(255, 255, 255, .94);
+  background: rgba(255, 255, 255, 0.94);
   text-align: center;
   cursor: pointer;
   touch-action: manipulation;
-  transition: background-color 300ms ease, border-color 300ms ease;
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.team-brand__core:focus-visible { outline: 2px solid var(--color-focus); outline-offset: calc(3 / 14.4 * 1vw); }
-.team-brand__core.is-active { background:#fffaf8; box-shadow:0 calc(10 / 14.4 * 1vw) calc(24 / 14.4 * 1vw) rgba(81,59,77,.07); }
+.team-brand__core:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: calc(3 / 14.4 * 1vw);
+}
+.team-brand__core.is-active {
+  background: #fffaf8;
+  box-shadow: 0 calc(10 / 14.4 * 1vw) calc(24 / 14.4 * 1vw) rgba(81, 59, 77, 0.07);
+}
 
 .team-brand__core > span,
 .team-brand__result > span {
@@ -63,7 +71,7 @@
   margin: 0 0 calc(12 / 14.4 * 1vw);
   font-size: calc(32 / 14.4 * 1vw);
   font-weight: 500;
-  letter-spacing: calc(-.7 / 14.4 * 1vw);
+  letter-spacing: calc(-0.7 / 14.4 * 1vw);
   line-height: 1.125;
 }
 
@@ -80,8 +88,10 @@
   width: 100%;
   border: calc(2 / 14.4 * 1vw) solid transparent;
   border-radius: calc(12 / 14.4 * 1vw);
-  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #ff6d3d 0%, #ff6ca7 52%, #bb6dff 100%) border-box;
-  box-shadow: 0 calc(14 / 14.4 * 1vw) calc(30 / 14.4 * 1vw) rgba(67, 55, 63, .1);
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, #ff6d3d 0%, #ff6ca7 52%, #bb6dff 100%) border-box;
+  box-shadow: 0 calc(14 / 14.4 * 1vw) calc(30 / 14.4 * 1vw) rgba(67, 55, 63, 0.1);
   text-align: left;
 }
 
@@ -118,7 +128,7 @@
   padding: calc(24 / 14.4 * 1vw);
   border: 0;
   background: linear-gradient(145deg, #fff 12%, #ffe8db 65%, #ffbfd9);
-  transition: border-color .25s ease;
+  transition: border-color 0.25s ease;
 }
 
 .team-brand__material-label {
@@ -130,7 +140,9 @@
   border-radius: calc(5 / 14.4 * 1vw);
   color: #68686b;
   font-size: calc(12 / 14.4 * 1vw);
-  transition: border-color .25s ease, background .25s ease;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .team-brand__material .team-brand__material-body h3 {
@@ -142,7 +154,9 @@
   border: 1px solid transparent;
   border-radius: calc(5 / 14.4 * 1vw);
   font-size: calc(24 / 14.4 * 1vw);
-  transition: border-color .25s ease, background .25s ease;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .team-brand__material .team-brand__material-body p {
@@ -154,7 +168,9 @@
   border: 1px solid transparent;
   border-radius: calc(5 / 14.4 * 1vw);
   font-size: calc(14 / 14.4 * 1vw);
-  transition: border-color .25s ease, background .25s ease;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .team-brand__material-body > strong {
@@ -184,7 +200,9 @@
   font-size: calc(12 / 14.4 * 1vw);
   line-height: 1;
   text-align: center;
-  transition: border-color .25s ease, background .25s ease;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .team-brand__material-visual {
@@ -195,20 +213,39 @@
   right: 4%;
   border: 1px solid transparent;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .34);
-  transition: border-color .25s ease, box-shadow .25s ease;
+  background: rgba(255, 255, 255, 0.34);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .team-brand__material-visual i {
   position: absolute;
   border-radius: 50%;
   background: linear-gradient(145deg, #fff, #ff9e68);
-  box-shadow: 0 calc(8 / 14.4 * 1vw) calc(16 / 14.4 * 1vw) rgba(103, 57, 74, .14);
+  box-shadow: 0 calc(8 / 14.4 * 1vw) calc(16 / 14.4 * 1vw) rgba(103, 57, 74, 0.14);
 }
 
-.team-brand__material-visual i:first-child { width: 54%; height: 54%; top: 6%; left: 5%; }
-.team-brand__material-visual i:nth-child(2) { width: 42%; height: 42%; right: 4%; bottom: 8%; background: linear-gradient(145deg, #fff, #ff79b1); }
-.team-brand__material-visual i:last-child { width: 24%; height: 24%; top: 8%; right: 8%; background: #111; }
+.team-brand__material-visual i:first-child {
+  width: 54%;
+  height: 54%;
+  top: 6%;
+  left: 5%;
+}
+.team-brand__material-visual i:nth-child(2) {
+  width: 42%;
+  height: 42%;
+  right: 4%;
+  bottom: 8%;
+  background: linear-gradient(145deg, #fff, #ff79b1);
+}
+.team-brand__material-visual i:last-child {
+  width: 24%;
+  height: 24%;
+  top: 8%;
+  right: 8%;
+  background: #111;
+}
 
 .team-brand__material-content .team-brand__material-label,
 .team-brand__material-content .team-brand__material-body h3,
@@ -216,10 +253,16 @@
 .team-brand__material-content .team-brand__material-visual,
 .team-brand__material-content .team-brand__material-body > strong,
 .team-brand__material-content .team-brand__material-body > small {
-  opacity: .34;
+  opacity: 0.34;
   filter: blur(1.5px);
-  transform: scale(.98);
-  transition: opacity .65s cubic-bezier(.16,1,.3,1), filter .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1), border-color .4s ease, background-color .4s ease, box-shadow .4s ease;
+  transform: scale(0.98);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    background-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .team-brand__material-content.is-marketing .team-brand__material-body h3,
@@ -278,11 +321,11 @@
 .team-brand__material-content.is-product .team-brand__material-label,
 .team-brand__material-content.is-brand .team-brand__material-body > small {
   border-color: #ff76a8;
-  background: rgba(255, 255, 255, .72);
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .team-brand__material-content.is-brand .team-brand__material-body > small {
-  box-shadow: 0 0 calc(14 / 14.4 * 1vw) rgba(255, 105, 167, .28);
+  box-shadow: 0 0 calc(14 / 14.4 * 1vw) rgba(255, 105, 167, 0.28);
   font-weight: 500;
   transform: scale(1.15);
   transform-origin: right bottom;
@@ -290,7 +333,7 @@
 
 .team-brand__material-content.is-design .team-brand__material-visual {
   border-color: #c373ff;
-  box-shadow: 0 0 calc(18 / 14.4 * 1vw) rgba(195, 115, 255, .25);
+  box-shadow: 0 0 calc(18 / 14.4 * 1vw) rgba(195, 115, 255, 0.25);
 }
 
 .team-brand__role {
@@ -302,20 +345,22 @@
   font: inherit;
   text-align: left;
   touch-action: manipulation;
-  transition: background-color 300ms ease, border-color 300ms ease;
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 .team-brand__role.is-active {
   background: #fffaf8;
-  box-shadow: 0 calc(10 / 14.4 * 1vw) calc(24 / 14.4 * 1vw) rgba(81, 59, 77, .07);
+  box-shadow: 0 calc(10 / 14.4 * 1vw) calc(24 / 14.4 * 1vw) rgba(81, 59, 77, 0.07);
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   .team-brand__core:not(.is-active):hover,
   .team-brand__role:not(.is-active):hover {
-    border-color: rgba(0, 0, 0, .1);
+    border-color: rgba(0, 0, 0, 0.1);
     background-color: #e9e9ec;
   }
 }
@@ -329,7 +374,7 @@
   width: max-content;
   margin-bottom: auto;
   padding: calc(6 / 14.4 * 1vw) calc(10 / 14.4 * 1vw);
-  border: 1px solid rgba(0, 0, 0, .07);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: calc(8 / 14.4 * 1vw);
   background: #fff;
   color: #8b8c91;
@@ -353,10 +398,18 @@
   line-height: 1.4286;
 }
 
-.team-brand__role.is-marketing { grid-area: marketing; }
-.team-brand__role.is-design { grid-area: design; }
-.team-brand__role.is-product { grid-area: product; }
-.team-brand__role.is-brand { grid-area: brand; }
+.team-brand__role.is-marketing {
+  grid-area: marketing;
+}
+.team-brand__role.is-design {
+  grid-area: design;
+}
+.team-brand__role.is-product {
+  grid-area: product;
+}
+.team-brand__role.is-brand {
+  grid-area: brand;
+}
 
 .team-brand__result {
   display: grid;
@@ -367,7 +420,7 @@
   margin-top: calc(12 / 14.4 * 1vw);
   padding: calc(24 / 14.4 * 1vw) calc(28 / 14.4 * 1vw);
   border-radius: calc(16 / 14.4 * 1vw);
-  border: 1px solid rgba(255, 255, 255, .72);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   background: linear-gradient(157deg, #fff 8%, #ffcdb3 32%, #ffa4b6 52%, #ffb2e9 68%, #d4d6ff 92%);
   background-size: 160% 160%;
   color: #111;
@@ -375,8 +428,12 @@
 }
 
 @keyframes team-brand-gradient-drift {
-  from { background-position: 0% 20%; }
-  to { background-position: 100% 80%; }
+  from {
+    background-position: 0% 20%;
+  }
+  to {
+    background-position: 100% 80%;
+  }
 }
 
 .team-brand__result strong {
@@ -394,16 +451,22 @@
   width: calc(34 / 14.4 * 1vw);
   height: calc(34 / 14.4 * 1vw);
   margin-left: calc(-8 / 14.4 * 1vw);
-  border: calc(3 / 14.4 * 1vw) solid rgba(255, 255, 255, .82);
+  border: calc(3 / 14.4 * 1vw) solid rgba(255, 255, 255, 0.82);
   border-radius: 50%;
   background: #fff;
 }
 
-.team-brand__swatches i:nth-child(2) { background: #ffb17e; }
-.team-brand__swatches i:nth-child(3) { background: #ff77ad; }
-.team-brand__swatches i:nth-child(4) { background: #c885ff; }
+.team-brand__swatches i:nth-child(2) {
+  background: #ffb17e;
+}
+.team-brand__swatches i:nth-child(3) {
+  background: #ff77ad;
+}
+.team-brand__swatches i:nth-child(4) {
+  background: #c885ff;
+}
 
-@media (max-width:1023px) {
+@media (max-width: 1023px) {
   .team-brand__surface {
     padding: calc(10 / 8.1 * 1vw);
     border-radius: calc(16 / 8.1 * 1vw);
@@ -411,7 +474,7 @@
 
   .team-brand__diagram {
     min-height: calc(430 / 8.1 * 1vw);
-    grid-template-columns: minmax(0, .72fr) minmax(calc(320 / 8.1 * 1vw), 1.55fr) minmax(0, .72fr);
+    grid-template-columns: minmax(0, 0.72fr) minmax(calc(320 / 8.1 * 1vw), 1.55fr) minmax(0, 0.72fr);
     gap: calc(10 / 8.1 * 1vw);
   }
 
@@ -545,7 +608,7 @@
   }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .team-brand__surface {
     padding: calc(6 / 3.75 * 1vw);
     border-radius: calc(12 / 3.75 * 1vw);
@@ -707,7 +770,7 @@
   }
 }
 
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   .team-brand__material-content .team-brand__material-label,
   .team-brand__material-content .team-brand__material-body h3,
   .team-brand__material-content .team-brand__material-body p,

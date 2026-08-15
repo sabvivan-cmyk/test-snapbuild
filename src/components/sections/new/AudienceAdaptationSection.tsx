@@ -44,10 +44,9 @@ export function AudienceAdaptationSection() {
     const section = sectionRef.current
     if (!section) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.35 },
-    )
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), {
+      threshold: 0.35,
+    })
 
     observer.observe(section)
     return () => observer.disconnect()
@@ -83,7 +82,12 @@ export function AudienceAdaptationSection() {
       ref={sectionRef}
     >
       <SectionHeader
-        title={<>Один материал —<br className="section-header__mobile-break" />{' разные аудитории'}</>}
+        title={
+          <>
+            Один материал —<br className="section-header__mobile-break" />
+            {' разные аудитории'}
+          </>
+        }
         description="Меняйте смысловые акценты под контекст аудитории, сохраняя визуальный язык бренда"
       />
 
@@ -114,7 +118,9 @@ export function AudienceAdaptationSection() {
                   onAnimationEnd={(event) => handleProgressEnd(event, index)}
                   onClick={() => setActiveAudience(index)}
                   onKeyDown={(event) => handleKeyDown(event, index)}
-                  ref={(node) => { tabRefs.current[index] = node }}
+                  ref={(node) => {
+                    tabRefs.current[index] = node
+                  }}
                   role="tab"
                   tabIndex={isActive ? 0 : -1}
                   type="button"
@@ -128,7 +134,9 @@ export function AudienceAdaptationSection() {
 
           <div className="audience-preview">
             <div aria-hidden="true" className="audience-preview__bar">
-              <i /><i /><i />
+              <i />
+              <i />
+              <i />
               <span>Страница продукта</span>
               <small>Preview</small>
             </div>
@@ -159,14 +167,24 @@ export function AudienceAdaptationSection() {
               </div>
 
               <div aria-hidden="true" className="audience-preview__visual">
-                <div><i /><i /><i /></div>
+                <div>
+                  <i />
+                  <i />
+                  <i />
+                </div>
                 <span>Единый стиль</span>
               </div>
             </div>
 
             <div className="audience-preview__status">
-              <span><i />Меняются текст и акценты</span>
-              <span><i />Сохраняется дизайн-система</span>
+              <span>
+                <i />
+                Меняются текст и акценты
+              </span>
+              <span>
+                <i />
+                Сохраняется дизайн-система
+              </span>
             </div>
           </div>
         </div>
